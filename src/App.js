@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
+import {Events, EventsClassStyle} from './Events'
 
 class ExampleComponent extends Component {
   constructor(props) {
@@ -84,6 +85,8 @@ class App extends Component {
           <h2>Basics of Components</h2>
           <ExampleComponent message="hello" name="component 1" />
           <AnotherComponent message="trello" name="component 2" />
+          <Events />
+          <EventsClassStyle />
         </div>
       </div>
     );
