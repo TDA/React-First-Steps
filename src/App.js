@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
-import {Events, EventsClassStyle} from './Events'
+import {Events, EventsClassStyle, ChildComponent, ParentComponent} from './Events'
 
 class ExampleComponent extends Component {
   constructor(props) {
@@ -87,6 +87,7 @@ class App extends Component {
           <AnotherComponent message="trello" name="component 2" />
           <Events />
           <EventsClassStyle />
+          <ParentComponent />
         </div>
       </div>
     );
