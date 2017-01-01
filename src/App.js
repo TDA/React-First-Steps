@@ -3,25 +3,53 @@ import logo from './logo.svg';
 import './App.css';
 
 class ExampleComponent extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      name: props.name,
+      message: props.message
+    }
+  }
+
   render() {
     return (
       <div>
+        <h3>{this.props.name}</h3>
+        <p>My message is : {this.props.message} </p>
         <ul>
           <li>This is a component. Components can have properties set.</li>
           <li>Properties are set on a component just like html attributes, i.e. {'<tagname attrName="attrValue"></tagname>'}</li>
           <li>Properties can be accessed inside a component by using the props object.</li>
-          <li>Another requirement for a component is that it should implement the render method (makes sense, otherwise how will it display?)</li>
+          <li>Only requirement for a component is that it should implement the render method (makes sense, otherwise how will it display?)</li>
+          <li>`this` keyword usage needs to be understood (usual JS)</li>
         </ul>
+        <p>Components can also have state, accessed similar to props: this.state</p>
+        <h4>This is my state: {JSON.stringify(this.state)}</h4>
       </div>
     )
   }
 }
 
 let AnotherComponent = React.createClass({
+  getInitialState () {
+    return {
+      name: this.props.name,
+      message: this.props.message
+    };
+  },
   render: function () {
     return(
       <div>
-        This is also a component, you can either use the ES6 class style (), or the regular JS object literal style.
+        <h3>{this.props.name}</h3>
+        <p>My message is : {this.props.message} </p>
+        <ul>
+          <li>This is also a component, you can either use the ES6 class style () as before, or the regular JS object literal style.</li>
+          <li>Lets try similar functionality as before</li>
+          <li>The object literal style though, is react specific</li>
+          <li>It does not require a constructor, instead, if you want to set default state, use getInitialState</li>
+          <li>Also, more importantly, `this` keyword binding is done automatically if you use the createClass()</li>
+        </ul>
+        <h4>This is my state: {JSON.stringify(this.state)}</h4>
       </div>
     )
   }
@@ -51,8 +79,8 @@ class App extends Component {
           <button className="btn">Button</button>
 
           <h2>Basics of Components</h2>
-          <ExampleComponent />
-          <AnotherComponent />
+          <ExampleComponent message="hello" name="component 1" />
+          <AnotherComponent message="trello" name="component 2" />
         </div>
       </div>
     );
