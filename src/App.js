@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
-import {Events, EventsClassStyle, ChildComponent, ParentComponent} from './Events'
+import {Events, EventsClassStyle, ParentComponent} from './Events'
+import {BoardSwitcher} from './State'
 
 class ExampleComponent extends Component {
   constructor(props) {
@@ -88,6 +89,7 @@ class App extends Component {
           <Events />
           <EventsClassStyle />
           <ParentComponent />
+          <BoardSwitcher numBoards={3} />
         </div>
       </div>
     );
