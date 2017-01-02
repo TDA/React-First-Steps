@@ -27,3 +27,15 @@
   text-align: left;
   margin: 10px;
 }
+
+.board {
+  border: solid 5px black;
+  display: inline-block;
+  margin: 5px;
+  text-align: center;
+  width: 50px;
+}
+
+.board.selected {
+  border-color: aqua;
+}
