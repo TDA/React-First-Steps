@@ -4,6 +4,9 @@ import './App.css';
 import {Events, EventsClassStyle, ParentComponent} from './Events'
 import {BoardSwitcher} from './State'
 
+
+// wish there was a way to get these pieces of code displayed on the page,
+// without having to c/p them.
 class ExampleComponent extends Component {
   constructor(props) {
     super(props);
