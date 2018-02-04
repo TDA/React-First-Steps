@@ -3,6 +3,7 @@ import logo from './logo.svg';
 import './App.css';
 import {Events, EventsClassStyle, ParentComponent} from './Events'
 import {BoardSwitcher} from './State'
+import {Clock} from './Clock/clock'
 
 
 // wish there was a way to get these pieces of code displayed on the page,
@@ -93,6 +94,11 @@ class App extends Component {
           <EventsClassStyle />
           <ParentComponent />
           <BoardSwitcher numBoards={3} />
+        </div>
+
+        <hr/>
+        <div id="content">
+          <Clock />
         </div>
       </div>
     );
