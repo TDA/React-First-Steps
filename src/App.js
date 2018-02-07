@@ -81,7 +81,7 @@ class App extends Component {
             <li>For anything other than strings (basically any variable), use braces {'{}'}</li>
             <li>To escape braces, use them as a string literal {'\'{}\''}</li>
             <li>Remember JavaScript keywords such as 'class' and 'for' need to be used differently: className, htmlFor, etc.</li>
-            <li>Since JSX is XML (this is a guess, but I believe thats the explanation), there needs to be one root element in here</li>
+            <li>Since JSX is XML (this is a guess, but I believe that's the explanation), there needs to be one root element in here</li>
             <li>Turns out I am right: 'Adjacent JSX elements must be wrapped in an enclosing tag'</li>
           </ul>
           <div>{ipsumText}</div>
@@ -97,7 +97,7 @@ class App extends Component {
         </div>
 
         <hr/>
-        <div id="content">
+        <div id="clock-content">
           <Clock />
         </div>
       </div>
