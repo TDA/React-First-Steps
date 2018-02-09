@@ -21,9 +21,17 @@ class Clock extends Component {
   }
 
   render () {
-    return <div> Current time is {this.state.currentTime} </div>
+    return (
+      <div>
+        <AnalogDisplay time={this.state.currentTime} />
+        <DigitalDisplay time={this.state.currentTime} />
+      </div>
+    )
   }
 }
+
+const AnalogDisplay = (props) => <div>{props.time}</div>;
+const DigitalDisplay = (props) => <div>{props.time}</div>;
 
 module.exports = {
   Clock: Clock

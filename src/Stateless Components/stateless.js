@@ -6,8 +6,9 @@ const HelloWorld = function (props) {
   return <h1 {...props}>Hello {props.name}!!!</h1>
 };
 
-// Or even more concise:
-const HelloWorldConcise = (props) => { <h1 {...props}>Hello {props.name}!!!</h1> };
+// Or even more concise: return/braces are not necessary with fat arrows
+// const HelloWorldConcise = (props) => <h1 {...props}>Hello {props.name}!!!</h1>;
+const HelloWorldConcise = (props) => { return <h1 {...props}>Hello {props.name}!!!</h1> };
 
 
 module.exports = {

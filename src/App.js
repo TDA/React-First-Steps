@@ -107,7 +107,7 @@ class App extends Component {
         </div>
         <hr/>
         <div id="stateless-hello-world-concise">
-          <HelloWorld name={'Sai Pc'}/>
+          <HelloWorldConcise name={'Sai Pc'}/>
         </div>
       </div>
     );
