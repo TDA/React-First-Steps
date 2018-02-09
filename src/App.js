@@ -4,6 +4,7 @@ import './App.css';
 import {Events, EventsClassStyle, ParentComponent} from './Events'
 import {BoardSwitcher} from './State'
 import {Clock} from './Clock/clock'
+import {HelloWorldConcise, HelloWorld} from './Stateless Components/stateless';
 
 
 // wish there was a way to get these pieces of code displayed on the page,
@@ -99,6 +100,14 @@ class App extends Component {
         <hr/>
         <div id="clock-content">
           <Clock />
+        </div>
+        <hr/>
+        <div id="stateless-hello-world">
+          <HelloWorld name={'Sai'}/>
+        </div>
+        <hr/>
+        <div id="stateless-hello-world-concise">
+          <HelloWorld name={'Sai Pc'}/>
         </div>
       </div>
     );
