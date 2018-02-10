@@ -30,8 +30,26 @@ class Clock extends Component {
   }
 }
 
-const AnalogDisplay = (props) => <div>{props.time}</div>;
 const DigitalDisplay = (props) => <div>{props.time}</div>;
+
+// For analog, lets do some fancy rotation stuff
+const AnalogDisplay = function (props) {
+  let date = new Date(props.time);
+  let secondHandDegrees = date.getSeconds()/60 * 360;
+  let minuteHandDegrees = date.getMinutes()/60 * 360;
+
+  let dialStyle = {
+
+  };
+
+  return (
+    <div>
+      <div style={dialStyle}>
+        {props.time}
+      </div>
+    </div>
+  );
+};
 
 module.exports = {
   Clock: Clock
