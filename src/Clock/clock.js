@@ -38,8 +38,16 @@ const AnalogDisplay = function (props) {
   let secondHandDegrees = date.getSeconds()/60 * 360;
   let minuteHandDegrees = date.getMinutes()/60 * 360;
 
+  // Need dialstyle to be relative so we can absolutely position things inside it.
   let dialStyle = {
-
+    position: 'relative',
+    top: 0,
+    left: '40%',
+    width: 200,
+    height: 200,
+    borderRadius: '50%',
+    borderStyle: 'solid',
+    borderColor: 'black'
   };
 
   return (
