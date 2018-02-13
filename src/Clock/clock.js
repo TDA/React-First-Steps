@@ -47,25 +47,39 @@ const AnalogDisplay = function (props) {
     height: 200,
     borderRadius: '50%',
     borderStyle: 'solid',
-    borderColor: 'black'
+    borderColor: 'black',
+    transform: 'rotate(-90deg)'
   };
 
   let secondHandStyle = {
-    position: 'relative',
+    position: 'absolute',
     top: 100,
     left: 100,
     border: '1px solid red',
-    width: '50%',
+    width: '45%',
     height: '1px',
     transform: `rotate(${secondHandDegrees}deg)`,
     transformOrigin: '0% 0%',
     backgroundColor: 'red'
   };
 
+  let minuteHandStyle = {
+    position: 'absolute',
+    top: 100,
+    left: 100,
+    border: '1px solid black',
+    width: '45%',
+    height: '3px',
+    transform: `rotate(${minuteHandDegrees}deg)`,
+    transformOrigin: '0% 0%',
+    backgroundColor: 'black'
+  };
+
   return (
     <div>
       <div style={dialStyle}>
         <div style={secondHandStyle} />
+        <div style={minuteHandStyle} />
         {props.time}
       </div>
     </div>
