@@ -37,6 +37,7 @@ const AnalogDisplay = function (props) {
   let date = new Date(props.time);
   let secondHandDegrees = date.getSeconds()/60 * 360;
   let minuteHandDegrees = date.getMinutes()/60 * 360;
+  let hourHandDegrees = date.getHours()/24 * 360;
 
   // Need dialstyle to be relative so we can absolutely position things inside it.
   let dialStyle = {
@@ -60,7 +61,8 @@ const AnalogDisplay = function (props) {
     height: '1px',
     transform: `rotate(${secondHandDegrees}deg)`,
     transformOrigin: '0% 0%',
-    backgroundColor: 'red'
+    backgroundColor: 'red',
+    zIndex: 5
   };
 
   let minuteHandStyle = {
@@ -72,7 +74,21 @@ const AnalogDisplay = function (props) {
     height: '3px',
     transform: `rotate(${minuteHandDegrees}deg)`,
     transformOrigin: '0% 0%',
-    backgroundColor: 'black'
+    backgroundColor: 'black',
+    zIndex: 3
+  };
+
+  let hourHandStyle = {
+    position: 'absolute',
+    top: 95,
+    left: 100,
+    border: '1px solid black',
+    width: '35%',
+    height: '4px',
+    transform: `rotate(${hourHandDegrees}deg)`,
+    transformOrigin: '0% 0%',
+    backgroundColor: 'black',
+    zIndex: 1
   };
 
   return (
@@ -80,7 +96,7 @@ const AnalogDisplay = function (props) {
       <div style={dialStyle}>
         <div style={secondHandStyle} />
         <div style={minuteHandStyle} />
-        {props.time}
+        <div style={hourHandStyle} />
       </div>
     </div>
   );
