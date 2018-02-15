@@ -52,6 +52,9 @@ const AnalogDisplay = function (props) {
     transform: 'rotate(-90deg)'
   };
 
+  // While this makes perfect sense, i.e. having all styles related to a component inside the
+  // component, it also *feels* wrong, probably because I have practiced separation of concerns
+  // with JS and CSS for such a long time as a web dev, and now we are back to old ways.
   let secondHandStyle = {
     position: 'absolute',
     top: 100,
