@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import ReactDOM from 'react-dom';
 
 class Clock extends Component {
   constructor(props) {
@@ -18,6 +19,13 @@ class Clock extends Component {
     // for auto-binding the `this` variable, like so:
     // () => { this.setState({currentTime: new Date().toLocaleString()}) }
     // I think this has pros and cons, but let's stick with the old way for now.
+  }
+
+  componentWillMount() {
+    console.log(ReactDOM.findDOMNode(this))
+  }
+  componentDidMount() {
+    console.dir(ReactDOM.findDOMNode(this))
   }
 
   render () {
