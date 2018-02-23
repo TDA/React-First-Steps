@@ -1,3 +1,6 @@
+import React from 'react';
+import ReactDOM from 'react-dom';
+
 class Logger extends React.Component {
   constructor(props) {
     super(props);
@@ -42,7 +45,11 @@ class Logger extends React.Component {
   }
 
   render() {
-    // console.log('rendering... Display');
-    return (this.props.time)
+    console.log('rendering... Display');
+    return <div>{this.props.time}</div>
   }
 }
+
+module.exports = {
+  Logger: Logger
+};

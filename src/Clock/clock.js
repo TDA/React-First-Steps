@@ -1,18 +1,22 @@
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
+import {Logger} from './../Logger/Logger'
 
 class Clock extends Component {
   constructor(props) {
     super(props);
     this.launchClock();
     this.state = {
+      counter: 0,
       currentTime: new Date().toLocaleString()
     }
   }
 
   launchClock () {
     setInterval(function () {
+      let counter = ++this.state.counter;
       this.setState({
+        counter: counter,
         currentTime: new Date().toLocaleString()
       })
     }.bind(this), 1000); // Alternative, we can also use the cool fat arrow
@@ -33,6 +37,7 @@ class Clock extends Component {
       <div>
         <AnalogDisplay time={this.state.currentTime} />
         <DigitalDisplay time={this.state.currentTime} />
+        {this.state.counter > 2 ? (<div>Nothing</div>) : <Logger time={this.state.currentTime}/> }
       </div>
     )
   }
