@@ -7,8 +7,7 @@ class Clock extends Component {
     super(props);
     this.launchClock();
     this.state = {
-      counter: 0,
-      currentTime: new Date().toLocaleString()
+      counter: 0
     }
   }
 
@@ -29,7 +28,10 @@ class Clock extends Component {
     console.log(ReactDOM.findDOMNode(this))
   }
   componentDidMount() {
-    console.dir(ReactDOM.findDOMNode(this))
+    console.dir(ReactDOM.findDOMNode(this));
+    fetch('')
+      .then((response) => { console.log('cool componentDidMount', response); })
+      .then(() => this.setState({currentTime: new Date().toLocaleString()}));
   }
 
   render () {
@@ -37,7 +39,7 @@ class Clock extends Component {
       <div>
         <AnalogDisplay time={this.state.currentTime} />
         <DigitalDisplay time={this.state.currentTime} />
-        {this.state.counter > 2 ? (<div>Nothing</div>) : <Logger time={this.state.currentTime}/> }
+        {this.state.counter > 1 ? (<div>Nothing</div>) : <Logger time={this.state.currentTime}/> }
       </div>
     )
   }
