@@ -5,6 +5,7 @@ import {Events, EventsClassStyle, ParentComponent} from './Events'
 import {BoardSwitcher} from './State'
 import {Clock} from './Clock/clock'
 import {HelloWorldConcise, HelloWorld} from './Stateless Components/stateless';
+import {Note} from './Note/Note'
 
 
 // wish there was a way to get these pieces of code displayed on the page,
@@ -67,8 +68,17 @@ const AnotherComponent = React.createClass({
 
 
 class App extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      noteValue: ''
+    };
+    this.displayNote();
+  }
+
   render() {
-    var ipsumText = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. Praesent libero.';
+    let ipsumText = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. Praesent libero.';
+
     return (
       <div className="App">
         <div className="App-header">
@@ -109,8 +119,35 @@ class App extends Component {
         <div id="stateless-hello-world-concise">
           <HelloWorldConcise name={'Sai Pc'}/>
         </div>
+        <hr/>
+        <div className='Note'>
+          {
+            this.state.noteValue
+          }
+        </div>
       </div>
     );
+  }
+
+  displayNote() {
+    let secondsLeft = 10;
+    let returnValue = '';
+    let interval = setInterval(() => {
+      console.log(secondsLeft, "secondsleft");
+      if (secondsLeft === 0) {
+        clearInterval(interval);
+        this.setState({
+          noteValue: `Note was removed after ${10 - secondsLeft} seconds.`
+        });
+      } else {
+        secondsLeft--;
+        this.setState({
+          noteValue: <Note secondsLeft={secondsLeft}/>
+        });
+      }
+    }, 1000);
+    console.log("Returning", returnValue);
+    return returnValue;
   }
 }
 

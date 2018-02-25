@@ -1,18 +1,19 @@
 import React, { Component } from 'react';
 
-class Note extends React.Component {
-  static confirmLeave(e) {
+class Note extends Component {
+  confirmLeave(e) {
+    console.log("Am i even called?");
     let confirmationMessage = 'Do you really want to close?';
-    e.returnValue = confirmationMessage; // Gecko, Trident, Chrome 34+
+    (e || window.event).returnValue = confirmationMessage; // Gecko, Trident, Chrome 34+, IE, Edge
     return confirmationMessage; // Gecko, WebKit, Chrome <34
   }
   componentDidMount() {
     console.log('Attaching confirmLeave event listener for beforeunload');
-    window.addEventListener('beforeunload', this.confirmLeave)
+    window.addEventListener('beforeunload', this.confirmLeave);
   }
   componentWillUnmount() {
     console.log('Removing confirmLeave event listener for beforeunload');
-    window.removeEventListener('beforeunload', this.confirmLeave)
+    window.removeEventListener('beforeunload', this.confirmLeave);
   }
   render() {
     console.log('Render');
@@ -22,3 +23,7 @@ class Note extends React.Component {
     )
   }
 }
+
+module.exports = {
+  Note: Note
+};
