@@ -31,7 +31,6 @@ class ExampleComponent extends Component {
   }
 }
 
-
 module.exports = {
   ExampleComponent: ExampleComponent
 };
