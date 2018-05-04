@@ -10,7 +10,7 @@ const Events = React.createClass({
   },
   render: function () {
     return (
-      <div onClick={this.handleClick}>Click me</div>
+      <button onClick={this.handleClick}>Click me</button>
     )
   }
 });
@@ -18,6 +18,7 @@ const Events = React.createClass({
 class EventsClassStyle extends Component {
   handleClick () {
     // `this` needs to be bound explicitly for class style events
+    console.log("asdfsafd");
     console.log(this); // is null when not bound
     // when bound, it looks like
     // <div onClick="bound handleClick()">Click me as well</div>
@@ -28,7 +29,7 @@ class EventsClassStyle extends Component {
 
   render() {
     return (
-      <div onClick={this.handleClick.bind(this)}>Click me as well</div>
+      <button onClick={this.handleClick.bind(this)}>Click me as well</button>
     )
   }
 }
