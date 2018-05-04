@@ -9,10 +9,14 @@ class Logger extends React.Component {
 
   componentWillMount() {
     console.log('componentWillMount is triggered');
+    console.log('this will be null');
+    console.dir(ReactDOM.findDOMNode(this))
   }
 
   componentDidMount(e) {
+    console.log('so this is the equivalent of $.ready');
     console.log('componentDidMount is triggered');
+    console.log('this will be NOT be null');
     console.log('DOM node: ', ReactDOM.findDOMNode(this));
   }
 
