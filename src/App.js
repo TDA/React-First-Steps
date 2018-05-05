@@ -1,12 +1,13 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
-import {Events, EventsClassStyle, ParentComponent} from './Events'
-import {BoardSwitcher} from './State'
-import {Clock} from './Clock/clock'
+import {Events, EventsClassStyle, ParentComponent} from './Events';
+import {BoardSwitcher} from './State';
+import {Clock} from './Clock/clock';
 import {HelloWorldConcise, HelloWorld} from './Stateless Components/stateless';
-import {Note} from './Note/Note'
-import {ExampleComponent} from './Components/ExampleComponent.jsx'
+import {Note} from './Note/Note';
+import {ExampleComponent} from './Components/ExampleComponent.jsx';
+import {CodeFetcher} from './Components/CodeFetcher.jsx';
 
 const AnotherComponent = React.createClass({
   getInitialState: function () {
@@ -69,7 +70,7 @@ class App extends Component {
           <hr/>
           <h2>Basics of Components</h2>
           <ExampleComponent message="hello" name="component 1" />
-          <pre><code>sdf</code></pre>
+          <CodeFetcher componentName={'ExampleComponent'} />
           <hr/>
           <AnotherComponent message="trello" name="component 2" />
           <hr/>

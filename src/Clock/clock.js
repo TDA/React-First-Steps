@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
-import {Logger} from './../Logger/Logger'
 
 class Clock extends Component {
   constructor(props) {
@@ -39,7 +38,7 @@ class Clock extends Component {
       <div>
         <AnalogDisplay time={this.state.currentTime} />
         <DigitalDisplay time={this.state.currentTime} />
-        {this.state.counter > 1 ? (<div>Nothing</div>) : <Logger time={this.state.currentTime}/> }
+        {/*{this.state.counter > 1 ? (<div>Nothing</div>) : <Logger time={this.state.currentTime}/> }*/}
       </div>
     )
   }
