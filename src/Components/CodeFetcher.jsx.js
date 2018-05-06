@@ -20,12 +20,12 @@ class CodeFetcher extends Component {
   render() {
     return (
       <figure>
-        <figcaption>{this.state.url}</figcaption>
         <pre>
           <code>
             {this.state.code.toString()}
           </code>
         </pre>
+        <figcaption>Contents of {this.state.url}</figcaption>
       </figure>
     )
   }

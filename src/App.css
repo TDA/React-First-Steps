@@ -39,3 +39,14 @@
 .board.selected {
   border-color: aqua;
 }
+
+figcaption {
+  text-align: center;
+  font-weight: bold;
+}
+pre {
+  background-color: #eee;
+  border: solid 1px black;
+  display: block;
+  padding: 20px;
+}
