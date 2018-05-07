@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
-import {Events, EventsClassStyle, ParentComponent} from './Events';
+import {Events, EventsClassStyle, ParentComponent} from './Components/Events.jsx';
 import {BoardSwitcher} from './State';
 import {Clock} from './Clock/clock';
 import {HelloWorldConcise, HelloWorld} from './Stateless Components/stateless';
@@ -73,8 +73,10 @@ class App extends Component {
           <CodeFetcher componentName={'ExampleComponent'} />
           <hr/>
           <AnotherComponent message="trello" name="component 2" />
+          <CodeFetcher componentName={'AnotherComponent'} />
           <hr/>
           <Events />
+          <CodeFetcher componentName={'Events'} />
           <hr/>
           <EventsClassStyle />
           <hr/>
