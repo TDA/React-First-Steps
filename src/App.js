@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
 import {Events, EventsClassStyle, ParentComponent} from './Components/Events.jsx';
-import {BoardSwitcher} from './State';
+import {BoardSwitcher} from './Components/State.jsx';
 import {Clock} from './Clock/clock';
 import {HelloWorldConcise, HelloWorld} from './Stateless Components/stateless';
 import {Note} from './Note/Note';
@@ -57,12 +57,12 @@ class App extends Component {
           <ParentComponent />
           <hr/>
           <BoardSwitcher numBoards={3} />
+          <CodeFetcher componentName={'State'} />
         </div>
 
         <hr/>
-        <div id="clock-content">
-          <Clock />
-        </div>
+        <div id="clock-content"><Clock /></div>
+
         <hr/>
         <div id="stateless-hello-world">
           <HelloWorld name={'Sai'}/>
