@@ -9,6 +9,7 @@ import {Note} from './Note/Note';
 import {ExampleComponent} from './Components/ExampleComponent.jsx';
 import {AnotherComponent} from './Components/AnotherComponent.jsx';
 import {CodeFetcher} from './Components/CodeFetcher.jsx';
+import {Mouse} from './Components/Mouse.jsx';
 
 class App extends Component {
   constructor(props) {
@@ -77,6 +78,8 @@ class App extends Component {
             this.state.noteValue
           }
         </div>
+        <hr/>
+        <Mouse />
       </div>
     );
   }
