@@ -7,16 +7,26 @@ class Mouse extends React.Component {
       <div>
         <div
           style={{border: '1px solid red'}}
-          onMouseOverCapture={((event)=>{
-            console.log('mouse over on capture event');
-            console.dir(event, this)}).bind(this)}
-          onMouseOver={((event)=>{
-            console.log('mouse over on bubbling event');
-            console.dir(event, this)}).bind(this)} >
+          onMouseOverCapture={this.getOnMouseOverCapture()}
+          onMouseOver={this.getOnMouseOver()} >
           Open DevTools and move your mouse cursor over here
         </div>
       </div>
     )
+  }
+
+  getOnMouseOver() {
+    return this._getEvent('mouse over on bubbling event');
+  }
+  getOnMouseOverCapture() {
+    return this._getEvent('mouse over on capture event');
+  }
+
+  _getEvent(eventText) {
+    return ((event) => {
+      console.log(eventText);
+      console.dir(event)
+    });
   }
 }
 
