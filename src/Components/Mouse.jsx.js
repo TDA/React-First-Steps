@@ -25,7 +25,9 @@ class Mouse extends React.Component {
   _getEvent(eventText) {
     return ((event) => {
       console.log(eventText);
-      console.dir(event)
+      console.log(event.currentTarget);
+      console.log(event.target);
+      console.log(event.nativeEvent);
     });
   }
 }
