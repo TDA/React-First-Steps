@@ -7,7 +7,8 @@ class Mouse extends React.Component {
       <div>
         <div
           style={{border: '1px solid red'}}
-          onMouseOverCapture={this.getOnMouseOverCapture()}
+          onMouseOverCapture={this.getOnMouseOverCapture()} // These need to be executed since we RETURN a method closure,
+          // usually you can skip the invocation and leave out the parantheses.
           onMouseOver={this.getOnMouseOver()} >
           Open DevTools and move your mouse cursor over here
         </div>
