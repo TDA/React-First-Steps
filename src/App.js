@@ -10,6 +10,7 @@ import {ExampleComponent} from './Components/ExampleComponent.jsx';
 import {AnotherComponent} from './Components/AnotherComponent.jsx';
 import {CodeFetcher} from './Components/CodeFetcher.jsx';
 import {Mouse} from './Components/Mouse.jsx';
+import {StaticForm} from './Forms/Forms.jsx.js';
 
 class App extends Component {
   constructor(props) {
@@ -80,6 +81,8 @@ class App extends Component {
         </div>
         <hr/>
         <Mouse />
+        <hr/>
+        <StaticForm/>
       </div>
     );
   }
