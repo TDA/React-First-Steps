@@ -23,6 +23,7 @@ class DynamicForm extends React.Component {
       }
     };
     this.handleRadio = this.handleRadio.bind(this);
+    this.handleCheckbox = this.handleCheckbox.bind(this);
     this.handleTitleChange = this.handleTitleChange.bind(this);
   }
 
@@ -36,7 +37,7 @@ class DynamicForm extends React.Component {
   }
 
   handleCheckbox(event) {
-    let obj = {};  // erase other radios
+    let obj = Object.assign(this.state.cssStuff);
     obj[event.target.value] = event.target.checked;
 
     this.setState({
@@ -60,6 +61,7 @@ class DynamicForm extends React.Component {
           <input type="radio" name="jsStuff" onChange={this.handleRadio} value='react' id='react' checked={this.state.jsStuff['react']}/><label htmlFor='react'>react</label><br/>
           <input type="radio" name="jsStuff" onChange={this.handleRadio} value='vue' id='vue' checked={this.state.jsStuff['vue']}/><label htmlFor='vue'>vue</label>
         </radiogroup>
+        <br/>
         <checkboxgroup>
           <input type="checkbox" name="cssStuff" onChange={this.handleCheckbox} value='css1' id='css1' checked={this.state.cssStuff['css1']}/><label htmlFor='css1'>css1</label><br/>
           <input type="checkbox" name="cssStuff" onChange={this.handleCheckbox} value='css2' id='css2' checked={this.state.cssStuff['css2']}/><label htmlFor='css2'>css2</label><br/>
