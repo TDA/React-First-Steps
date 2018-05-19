@@ -20,11 +20,13 @@ class DynamicForm extends React.Component {
         css1: false,
         css2: false,
         css3: false
-      }
+      },
+      description: ''
     };
     this.handleRadio = this.handleRadio.bind(this);
     this.handleCheckbox = this.handleCheckbox.bind(this);
     this.handleTitleChange = this.handleTitleChange.bind(this);
+    this.handleDescription = this.handleDescription.bind(this);
   }
 
   handleRadio(event) {
@@ -51,6 +53,12 @@ class DynamicForm extends React.Component {
     })
   }
 
+  handleDescription(event) {
+    this.setState({
+      description: event.target.value
+    })
+  }
+
   render() {
     return (
       <form>
@@ -67,6 +75,8 @@ class DynamicForm extends React.Component {
           <input type="checkbox" name="cssStuff" onChange={this.handleCheckbox} value='css2' id='css2' checked={this.state.cssStuff['css2']}/><label htmlFor='css2'>css2</label><br/>
           <input type="checkbox" name="cssStuff" onChange={this.handleCheckbox} value='css3' id='css3' checked={this.state.cssStuff['css3']}/><label htmlFor='css3'>css3</label>
         </checkboxgroup>
+
+        <textarea name="description" value={this.state.description} onChange={this.handleDescription}/>
       </form>
     )
   }
