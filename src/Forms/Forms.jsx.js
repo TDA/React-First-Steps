@@ -21,7 +21,8 @@ class DynamicForm extends React.Component {
         css2: false,
         css3: false
       },
-      description: ''
+      additionalNotes: '',
+      favoriteLanguage: ''
     };
     this.handleRadio = this.handleRadio.bind(this);
     this.handleCheckbox = this.handleCheckbox.bind(this);
@@ -55,8 +56,12 @@ class DynamicForm extends React.Component {
 
   handleDescription(event) {
     this.setState({
-      description: event.target.value
+      additionalNotes: event.target.value
     })
+  }
+
+  handleSelectChange() {
+    this.setState({favoriteLanguage: event.target.value})
   }
 
   render() {
@@ -76,7 +81,19 @@ class DynamicForm extends React.Component {
           <input type="checkbox" name="cssStuff" onChange={this.handleCheckbox} value='css3' id='css3' checked={this.state.cssStuff['css3']}/><label htmlFor='css3'>css3</label>
         </checkboxgroup>
 
-        <textarea name="description" value={this.state.description} onChange={this.handleDescription}/>
+        <br/>
+        <label htmlFor="desciption">Additional notes?</label><textarea name="description" value={this.state.additionalNotes} onChange={this.handleDescription}/>
+        <br/>
+
+        <label htmlFor="selectField">Favorite language?</label>
+        <select
+          name="selectField"
+          value={this.state.selectedValue}
+          onChange={this.handleSelectChange}>
+          <option value="ruby">Ruby</option>
+          <option value="node">Node</option>
+          <option value="python">Python</option>
+        </select>
       </form>
     )
   }
