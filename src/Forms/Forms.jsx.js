@@ -22,12 +22,15 @@ class DynamicForm extends React.Component {
         css3: false
       },
       additionalNotes: '',
-      favoriteLanguage: ''
+      favoriteLanguage: 'ruby',
+      favoriteFrameworks: ['meteor', 'react'] // needs to be an array
     };
     this.handleRadio = this.handleRadio.bind(this);
     this.handleCheckbox = this.handleCheckbox.bind(this);
     this.handleTitleChange = this.handleTitleChange.bind(this);
     this.handleDescription = this.handleDescription.bind(this);
+    this.handleSelectChange = this.handleSelectChange.bind(this);
+    this.handleMultiSelectChange = this.handleMultiSelectChange.bind(this);
   }
 
   handleRadio(event) {
@@ -60,8 +63,13 @@ class DynamicForm extends React.Component {
     })
   }
 
-  handleSelectChange() {
+  handleSelectChange(event) {
     this.setState({favoriteLanguage: event.target.value})
+  }
+
+  handleMultiSelectChange(event) {
+    console.log(event.target.value);
+    this.setState({favoriteFrameworks: event.target.value})
   }
 
   render() {
@@ -88,11 +96,25 @@ class DynamicForm extends React.Component {
         <label htmlFor="selectField">Favorite language?</label>
         <select
           name="selectField"
-          value={this.state.selectedValue}
+          value={this.state.favoriteLanguage}
           onChange={this.handleSelectChange}>
           <option value="ruby">Ruby</option>
           <option value="node">Node</option>
           <option value="python">Python</option>
+        </select>
+
+        <br/>
+        <label htmlFor="multiselect">Multiple favorite frameworks?</label>
+        <select
+          multiple={true} // usage of {} vs "" for boolean values, truthy vs falsy comes into play
+          value={this.state.favoriteFrameworks}
+          onChange={this.handleMultiSelectChange}
+        >
+          <option value="meteor">Meteor</option>
+          <option value="react">React</option>
+          <option value="jQuery">jQuery</option>
+          <option value="backbone">Backbone</option>
+          <option value="ember">Ember</option>
         </select>
       </form>
     )
