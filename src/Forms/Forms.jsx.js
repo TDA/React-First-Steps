@@ -68,8 +68,10 @@ class DynamicForm extends React.Component {
   }
 
   handleMultiSelectChange(event) {
-    console.log(event.target.value);
-    this.setState({favoriteFrameworks: event.target.value})
+    let options = [...event.target.options]; // convert to array instead of nodelist so we can do filter
+    let selectedOptions = options.filter(o => o.selected).map(o => o.value);
+    console.log(selectedOptions);
+    this.setState({favoriteFrameworks: selectedOptions})
   }
 
   render() {
