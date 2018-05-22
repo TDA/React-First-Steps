@@ -1,4 +1,5 @@
 import React from 'react';
+import ReactDOM from 'react-dom';
 
 class StaticForm extends React.Component {
   render() {
@@ -123,7 +124,34 @@ class DynamicForm extends React.Component {
   }
 }
 
+class UncontrolledForms extends React.Component {
+  constructor(props) {
+    super(props)
+    this.state = {textbook: ''};
+  }
+
+  handleChange(event) {
+    this.setState({textbook: event.target.value})
+  }
+
+  render() {
+    return (
+      <div>
+        <input // The input value isnt handled by React, only the <span> tag is updated by React, so this is an uncontrolled input tag
+          type="text"
+          onChange={this.handleChange.bind(this)}
+          placeholder="Eloquent TypeScript: Myth or Reality" />
+        <br/>
+        <span>{this.state.textbook}</span>
+        <br/>
+
+      </div>
+    )
+  }
+}
+
 module.exports = {
   StaticForm: StaticForm,
-  DynamicForm: DynamicForm
+  DynamicForm: DynamicForm,
+  UncontrolledForms: UncontrolledForms
 };
