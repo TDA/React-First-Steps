@@ -134,6 +134,16 @@ class UncontrolledForms extends React.Component {
     this.setState({textbook: event.target.value})
   }
 
+  componentDidUpdate() {
+    if (this.refs.uncontrolledInput)
+      console.log(ReactDOM.findDOMNode(this.refs.uncontrolledInput).value);
+  }
+
+  componentDidMount() {
+    if (this.refs.uncontrolledInput)
+      console.log(ReactDOM.findDOMNode(this.refs.uncontrolledInput).value);
+  }
+
   render() {
     return (
       <div>
@@ -145,6 +155,16 @@ class UncontrolledForms extends React.Component {
         <span>{this.state.textbook}</span>
         <br/>
 
+        <input type="text" // This uses refs instead of the event handlers, so this is also uncontrolled input tag
+          // Refs are legacy/deprecated, so you really want to avoid this
+          ref="uncontrolledInput"
+          placeholder="some random text"
+          defaultValue='lol?'
+        />
+        <span // this usage of refs inside render is also not a good practice, this is here just to show it can work, use it inside ComponentDidMount etc
+        >
+          { this.refs.uncontrolledInput ? ReactDOM.findDOMNode(this.refs.uncontrolledInput).value : '' }
+        </span>
       </div>
     )
   }
