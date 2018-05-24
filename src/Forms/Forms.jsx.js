@@ -28,11 +28,18 @@ class DynamicForm extends React.Component {
     };
     this.handleRadio = this.handleRadio.bind(this);
     this.handleCheckbox = this.handleCheckbox.bind(this);
-    this.handleTitleChange = this.handleTitleChange.bind(this);
-    this.handleDescription = this.handleDescription.bind(this);
-    this.handleSelectChange = this.handleSelectChange.bind(this);
     this.handleMultiSelectChange = this.handleMultiSelectChange.bind(this);
   }
+
+  handleChange = name => event => {
+    this.setState({ [name]: event.target.value });
+  };
+  // The above is the same as below but uses fat arrows to bind
+  // handleChange(name) {
+  //   return function (event) {
+  //     this.setState({ [name]: event.target.value });
+  //   }.bind(this);
+  // }
 
   handleRadio(event) {
     let obj = {};  // erase other radios
@@ -52,22 +59,6 @@ class DynamicForm extends React.Component {
     })
   }
 
-  handleTitleChange(event) {
-    this.setState({
-      title: event.target.value
-    })
-  }
-
-  handleDescription(event) {
-    this.setState({
-      additionalNotes: event.target.value
-    })
-  }
-
-  handleSelectChange(event) {
-    this.setState({favoriteLanguage: event.target.value})
-  }
-
   handleMultiSelectChange(event) {
     let options = [...event.target.options]; // convert to array instead of nodelist so we can do filter
     let selectedOptions = options.filter(o => o.selected).map(o => o.value);
@@ -78,7 +69,7 @@ class DynamicForm extends React.Component {
   render() {
     return (
       <form>
-        <label htmlFor="title">Title:</label><input type="text" name="title" value={this.state.title} onChange={this.handleTitleChange} />
+        <label htmlFor="title">Title:</label><input type="text" name="title" value={this.state.title} onChange={this.handleChange('title')} />
         <br/>
         <radiogroup>
           <input type="radio" name="jsStuff" onChange={this.handleRadio} value='angular' id='angular' checked={this.state.jsStuff['angular']}/><label htmlFor='angular'>angular</label><br/>
@@ -93,14 +84,14 @@ class DynamicForm extends React.Component {
         </checkboxgroup>
 
         <br/>
-        <label htmlFor="desciption">Additional notes?</label><textarea name="description" value={this.state.additionalNotes} onChange={this.handleDescription}/>
+        <label htmlFor="desciption">Additional notes?</label><textarea name="description" value={this.state.additionalNotes} onChange={this.handleChange('additionalNotes')}/>
         <br/>
 
         <label htmlFor="selectField">Favorite language?</label>
         <select
           name="selectField"
           value={this.state.favoriteLanguage}
-          onChange={this.handleSelectChange}>
+          onChange={this.handleChange('favoriteLanguage')}>
           <option value="ruby">Ruby</option>
           <option value="node">Node</option>
           <option value="python">Python</option>

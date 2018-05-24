@@ -86,6 +86,8 @@ class App extends Component {
         <DynamicForm/>
         <hr/>
         <UncontrolledForms/>
+        <hr/>
+
       </div>
     );
   }
