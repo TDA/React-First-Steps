@@ -11,6 +11,7 @@ import {AnotherComponent} from './Components/AnotherComponent.jsx';
 import {CodeFetcher} from './Components/CodeFetcher.jsx';
 import {Mouse} from './Components/Mouse.jsx';
 import {StaticForm, DynamicForm, UncontrolledForms} from './Forms/Forms.jsx.js';
+import {ComponentWithDefaultProps} from './Components/ComponentWithDefaultProps.jsx'
 
 class App extends Component {
   constructor(props) {
@@ -87,6 +88,8 @@ class App extends Component {
         <hr/>
         <UncontrolledForms/>
         <hr/>
+        <ComponentWithDefaultProps/>
+        <ComponentWithDefaultProps buttonLabel={'SubmitSomethingElse'}/>
 
       </div>
     );
