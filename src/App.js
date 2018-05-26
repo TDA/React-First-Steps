@@ -12,6 +12,7 @@ import {CodeFetcher} from './Components/CodeFetcher.jsx';
 import {Mouse} from './Components/Mouse.jsx';
 import {StaticForm, DynamicForm, UncontrolledForms} from './Forms/Forms.jsx.js';
 import {ComponentWithDefaultProps} from './Components/ComponentWithDefaultProps.jsx'
+import {ComponentWithPropTypes} from './Components/ComponentWithPropTypes.jsx'
 
 class App extends Component {
   constructor(props) {
@@ -90,7 +91,9 @@ class App extends Component {
         <hr/>
         <ComponentWithDefaultProps/>
         <ComponentWithDefaultProps buttonLabel={'SubmitSomethingElse'}/>
-
+        <hr/>
+        {/*This will show a warning since this expects a number*/}
+        <ComponentWithPropTypes buttonLabel={4}/>
       </div>
     );
   }
