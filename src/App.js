@@ -92,8 +92,12 @@ class App extends Component {
         <ComponentWithDefaultProps/>
         <ComponentWithDefaultProps buttonLabel={'SubmitSomethingElse'}/>
         <hr/>
-        {/*This will show a warning since this expects a number*/}
+        {/*All these will show warnings since due to propTypes*/}
         <ComponentWithPropTypes buttonLabel={4}/>
+        <ComponentWithPropTypes buttonLabel="Start" handler={undefined}/>
+        <ComponentWithPropTypes />
+        <ComponentWithPropTypes email="not-a-valid-email" handler={undefined}/>
+        <ComponentWithPropTypes email="hi@azat.co" handler={undefined}/>
       </div>
     );
   }
