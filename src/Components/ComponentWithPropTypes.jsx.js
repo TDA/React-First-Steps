@@ -13,11 +13,15 @@ ComponentWithPropTypes.propTypes = {
   // custom validator
   email(props, propName, componentName) {
     let emailRegularExpression = /^([\w-]+(?:\.[\w-]+)*)@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$/i;
-    if (!emailRegularExpression.test(props[propName])) {
+    if (props[propName] && !emailRegularExpression.test(props[propName])) { // optional, but must match if provided
       // To implement custom validation, we need to create an expression that returns an instance of Error
       return new Error('Email validation failed!')
     }
   }
+};
+
+ComponentWithPropTypes.defaultProps = {
+  buttonLabel: 5 // Even this actually throws a propTypes warning! So cool! :D
 };
 
 module.exports = {

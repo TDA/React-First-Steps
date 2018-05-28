@@ -93,7 +93,7 @@ class App extends Component {
         <ComponentWithDefaultProps buttonLabel={'SubmitSomethingElse'}/>
         <hr/>
         {/*All these will show warnings since due to propTypes*/}
-        <ComponentWithPropTypes buttonLabel={4}/>
+        <ComponentWithPropTypes buttonLabel={'4'} email={"h1@sai.com"}/>
         <ComponentWithPropTypes buttonLabel="Start" handler={undefined}/>
         <ComponentWithPropTypes />
         <ComponentWithPropTypes email="not-a-valid-email" handler={undefined}/>
