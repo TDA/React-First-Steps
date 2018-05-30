@@ -11,8 +11,9 @@ import {AnotherComponent} from './Components/AnotherComponent.jsx';
 import {CodeFetcher} from './Components/CodeFetcher.jsx';
 import {Mouse} from './Components/Mouse.jsx';
 import {StaticForm, DynamicForm, UncontrolledForms} from './Forms/Forms.jsx.js';
-import {ComponentWithDefaultProps} from './Components/ComponentWithDefaultProps.jsx'
-import {ComponentWithPropTypes} from './Components/ComponentWithPropTypes.jsx'
+import {ComponentWithDefaultProps} from './Components/ComponentWithDefaultProps.jsx';
+import {ComponentWithPropTypes} from './Components/ComponentWithPropTypes.jsx';
+import {HOC, EnhancedButton} from './Components/HOC.jsx';
 
 class App extends Component {
   constructor(props) {
@@ -103,7 +104,7 @@ class App extends Component {
 
         <hr/>
         <h2>Higher Order Components</h2>
-
+        <EnhancedButton/> <div id={'frame'} />
       </div>
     );
   }
