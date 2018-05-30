@@ -89,15 +89,21 @@ class App extends Component {
         <hr/>
         <UncontrolledForms/>
         <hr/>
+        <h2>Components with Default Props</h2>
         <ComponentWithDefaultProps/>
         <ComponentWithDefaultProps buttonLabel={'SubmitSomethingElse'}/>
         <hr/>
         {/*All these will show warnings since due to propTypes*/}
+        <h2>Components with Prop Types</h2>
         <ComponentWithPropTypes buttonLabel={'4'} email={"h1@sai.com"}/>
         <ComponentWithPropTypes buttonLabel="Start" handler={undefined}/>
         <ComponentWithPropTypes />
         <ComponentWithPropTypes email="not-a-valid-email" handler={undefined}/>
         <ComponentWithPropTypes email="hi@azat.co" handler={undefined}/>
+
+        <hr/>
+        <h2>Higher Order Components</h2>
+
       </div>
     );
   }
