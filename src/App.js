@@ -13,7 +13,7 @@ import {Mouse} from './Components/Mouse.jsx';
 import {StaticForm, DynamicForm, UncontrolledForms} from './Forms/Forms.jsx.js';
 import {ComponentWithDefaultProps} from './Components/ComponentWithDefaultProps.jsx';
 import {ComponentWithPropTypes} from './Components/ComponentWithPropTypes.jsx';
-import {HOC, EnhancedButton} from './Components/HOC.jsx';
+import {EnhancedButton, EnhancedLink, EnhancedLogo} from './Components/HOC.jsx';
 
 class App extends Component {
   constructor(props) {
@@ -104,7 +104,11 @@ class App extends Component {
 
         <hr/>
         <h2>Higher Order Components</h2>
-        <EnhancedButton/> <div id={'frame'} />
+        <EnhancedButton/>
+        <EnhancedLink/>
+        <EnhancedLogo/>
+
+        <iframe id="frame" src="" width="600" height="500"/>
       </div>
     );
   }

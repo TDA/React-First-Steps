@@ -10,7 +10,7 @@ const HOC = (Component) => {
     }
 
     getUrl() {
-      return 'https://facebook.github.io/react/docs/top-level-api.html';
+      return 'https://google.com';
     }
 
     handleClick(event) {
@@ -35,7 +35,20 @@ class Button extends React.Component {
   }
 }
 
+class Link extends React.Component {
+  render() {
+    return <a {...this.props} href="#">{this.props.label}</a>
+  }
+}
+
+class Logo extends React.Component {
+  render() {
+    return <img {...this.props} width="40" src="logo.png" href="#" alt={'logo'}/>
+  }
+}
+
 module.exports = {
-  HOC: HOC,
-  EnhancedButton: HOC(Button)
+  EnhancedButton: HOC(Button),
+  EnhancedLink: HOC(Link),
+  EnhancedLogo: HOC(Logo)
 };
