@@ -1,5 +1,4 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
 
 const HOC = (Component) => {
   class _HOC extends React.Component {
@@ -29,23 +28,11 @@ const HOC = (Component) => {
   return _HOC;
 };
 
-class Button extends React.Component {
-  render() {
-    return <button {...this.props} className="btn btn-primary">{this.props.label}</button>
-  }
-}
+const Button = props => <button {...props} className="btn btn-primary">{props.label}</button>;
 
-class Link extends React.Component {
-  render() {
-    return <a {...this.props} href="#">{this.props.label}</a>
-  }
-}
+const Link = props => <a {...props} href="#">{props.label}</a>;
 
-class Logo extends React.Component {
-  render() {
-    return <img {...this.props} width="40" src="logo.png" href="#" alt={'logo'}/>
-  }
-}
+const Logo = props => <img {...props} width="40" src="logo.png" href="#" alt={'logo'}/>;
 
 module.exports = {
   EnhancedButton: HOC(Button),
