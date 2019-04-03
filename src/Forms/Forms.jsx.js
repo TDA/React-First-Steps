@@ -7,6 +7,56 @@ class StaticForm extends React.Component {
   }
 }
 
+function DynamicFormFunctional(props) {
+  // useEffect(effectFunction, listOfConditionalVariables);
+  useEffect(() => {
+
+  }, [variable1, variable2]);
+
+
+  const [value, setValue] = useState('initialValue');
+  const [value2, setValue2] = useState('initialValue2');
+  const [state, setState] = useState({});
+
+  const [state, dispatch] = useReducer(reducer, initialArg, init);
+
+  const locale = useContext(MyContext);
+  const theme = useContext(MyContext2);
+
+  // Multiple contexts!!!
+  function render() {
+    return(<div>
+      <div>{locale === 'US' ? displayA : displayB}</div>
+      <div>{theme === 'black-theme' ? displayC : displayD}</div>
+    </div>);
+  }
+}
+
+
+function reducer(state, action) {
+  switch (action.type) {
+    case 'increment':
+      return {count: state.count + 1};
+    case 'decrement':
+      return {count: state.count - 1};
+    default:
+      throw new Error();
+  }
+}
+
+function Counter({initialState}) {
+  const [state, dispatch] = useReducer(reducer, initialState);
+  return (
+    <>
+      Count: {state.count}
+      <button onClick={() => dispatch({type: 'increment'})}>+</button>
+      <button onClick={() => dispatch({type: 'decrement'})}>-</button>
+    </>
+  );
+}
+
+
+
 class DynamicForm extends React.Component {
   constructor(props, context) {
     super(props, context);
@@ -29,6 +79,15 @@ class DynamicForm extends React.Component {
     this.handleRadio = this.handleRadio.bind(this);
     this.handleCheckbox = this.handleCheckbox.bind(this);
     this.handleMultiSelectChange = this.handleMultiSelectChange.bind(this);
+  }
+
+  componentDidMount() {
+  }
+
+  componentDidUpdate(prevProps, prevState, snapshot) {
+  }
+
+  componentWillUnmount() {
   }
 
   handleChange = name => event => {
