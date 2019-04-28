@@ -3,6 +3,12 @@
   "version": "0.1.0",
   "private": true,
   "devDependencies": {
+    "eslint": "5.16.0",
+    "eslint-config-prettier": "4.2.0",
+    "eslint-plugin-prettier": "3.0.1",
+    "eslint-plugin-react": "7.12.4",
+    "eslint-plugin-react-hooks": "1.6.0",
+    "prettier": "1.17.0",
     "react-scripts": "0.8.4"
   },
   "dependencies": {
@@ -14,6 +20,7 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "lint": "eslint --fix . && echo 'Lint complete.'"
   }
 }
